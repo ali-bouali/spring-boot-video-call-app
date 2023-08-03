@@ -33,8 +33,8 @@ window.onload = function () {
     const roomID = getUrlParams(window.location.href)['roomID'] || (Math.floor(Math.random() * 10000) + "");
     const userID = Math.floor(Math.random() * 10000) + "";
     const userName = getUrlParams(window.location.href)['username'] || "userName" + userID;
-    const appID = 994429203;
-    const serverSecret = "50541c6adc653e7e183d806e192c5a47";
+    const appID = 'GENERATE_YOURS'; // check the video on my https://youtube.con/@boualiali
+    const serverSecret = "GENERATE_YOURS"; // check the video on my https://youtube.con/@boualiali
     const kitToken = ZegoUIKitPrebuilt.generateKitTokenForTest(appID, serverSecret, roomID, userID, userName);
 
     
