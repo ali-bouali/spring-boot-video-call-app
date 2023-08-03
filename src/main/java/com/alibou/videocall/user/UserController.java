@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,18 +25,20 @@ public class UserController {
     private final UserService service;
 
     @PostMapping
-    public void register(User user) {
+    public void register(
+            @RequestBody User user
+    ) {
         service.register(user);
     }
 
     @PostMapping("/login")
-    public User login(User user) {
+    public User login(@RequestBody User user) {
         return service.login(user);
     }
 
     @PostMapping("/logout")
-    public void logout(String email) {
-        service.logout(email);
+    public void logout(@RequestBody User email) {
+        service.logout(email.getEmail());
     }
 
     @GetMapping
